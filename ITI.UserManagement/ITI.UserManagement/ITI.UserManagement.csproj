@@ -5,4 +5,8 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ITI.UserManagement.Model\ITI.UserManagement.Model.csproj" />
+  </ItemGroup>
+
 </Project>
