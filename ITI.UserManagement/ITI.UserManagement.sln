@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.12
+VisualStudioVersion = 15.0.26730.8
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITI.UserManagement", "ITI.UserManagement\ITI.UserManagement.csproj", "{AB9C1D02-9054-4ECC-BFB9-7EDE1619F578}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITI.UserManagement.Model", "ITI.UserManagement.Model\ITI.UserManagement.Model.csproj", "{5FF0B4B0-1529-406A-B877-871081F3A85A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITI.UserManagement.Model", "ITI.UserManagement.Model\ITI.UserManagement.Model.csproj", "{5FF0B4B0-1529-406A-B877-871081F3A85A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITI.Bottle", "ITI.Bottle\ITI.Bottle.csproj", "{71DE919D-A9D3-4333-AC8C-D4C817442B67}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{5FF0B4B0-1529-406A-B877-871081F3A85A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5FF0B4B0-1529-406A-B877-871081F3A85A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5FF0B4B0-1529-406A-B877-871081F3A85A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71DE919D-A9D3-4333-AC8C-D4C817442B67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71DE919D-A9D3-4333-AC8C-D4C817442B67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71DE919D-A9D3-4333-AC8C-D4C817442B67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71DE919D-A9D3-4333-AC8C-D4C817442B67}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
