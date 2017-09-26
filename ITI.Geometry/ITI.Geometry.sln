@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITI.Geometry", "ITI.Geometry\ITI.Geometry.csproj", "{5F7DE817-A242-4146-906F-D1579883C66C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITI.Geometry.UI", "ITI.Geometry.UI\ITI.Geometry.UI.csproj", "{8EFACE35-086F-4AE1-BAE9-A5FDD248D60A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5F7DE817-A242-4146-906F-D1579883C66C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F7DE817-A242-4146-906F-D1579883C66C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F7DE817-A242-4146-906F-D1579883C66C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F7DE817-A242-4146-906F-D1579883C66C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EFACE35-086F-4AE1-BAE9-A5FDD248D60A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EFACE35-086F-4AE1-BAE9-A5FDD248D60A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EFACE35-086F-4AE1-BAE9-A5FDD248D60A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EFACE35-086F-4AE1-BAE9-A5FDD248D60A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C31657FE-6DBA-465A-B8B3-125D1871268A}
+	EndGlobalSection
+EndGlobal
