@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITI.AccountManagement.NetFramework", "ITI.AccountManagement.NetFramework\ITI.AccountManagement.NetFramework.csproj", "{814187CE-F737-418E-A753-8ECD61A7E64F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITI.AccountManagement.NetFramework.Tests", "ITI.AccountManagement.NetFramework.Tests\ITI.AccountManagement.NetFramework.Tests.csproj", "{5D211DA4-4584-4850-B742-7213BEB4C04D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{814187CE-F737-418E-A753-8ECD61A7E64F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{814187CE-F737-418E-A753-8ECD61A7E64F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{814187CE-F737-418E-A753-8ECD61A7E64F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{814187CE-F737-418E-A753-8ECD61A7E64F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D211DA4-4584-4850-B742-7213BEB4C04D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D211DA4-4584-4850-B742-7213BEB4C04D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D211DA4-4584-4850-B742-7213BEB4C04D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D211DA4-4584-4850-B742-7213BEB4C04D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {602B7A98-9242-401F-8E65-55FDCDC885B5}
+	EndGlobalSection
+EndGlobal

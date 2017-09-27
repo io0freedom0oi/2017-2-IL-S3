@@ -18,6 +18,10 @@ namespace ITI
         /// <param name="initialVolume">The initial volume.</param>
         public Bottle( int capacity, int initialVolume )
         {
+            if( capacity <= 0 ) throw new ArgumentException( "The capacity must be greater than 0.", nameof( capacity ) );
+            if( initialVolume > capacity ) throw new ArgumentException( "The capacity must be lower or equal to the volume." );
+            if( initialVolume < 0 ) throw new ArgumentException( "The initial volume must be greater or equal to 0.", nameof( initialVolume ) );
+
             _capacity = capacity;
             _currentVolume = initialVolume;
         }
@@ -32,9 +36,10 @@ namespace ITI
             get { return _currentVolume; }
             set
             {
-                if( value < 0 ) _currentVolume = 0;
-                else if( value > _capacity ) _currentVolume = _capacity;
-                else _currentVolume = value;
+                if( value < 0 ) throw new ArgumentException( "The volume must be greater or equal to 0.", nameof( value ) );
+                if( value > _capacity ) throw new ArgumentException( "The volume must be lower or equal to the capacity.", nameof( value ) );
+
+                _currentVolume = value;
             }
         }
 
