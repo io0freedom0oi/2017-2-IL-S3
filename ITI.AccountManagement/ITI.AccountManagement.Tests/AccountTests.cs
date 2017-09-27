@@ -17,5 +17,13 @@ namespace ITI.AccountManagement.Tests
 
             Assert.AreEqual(3000, balance);
         }
+
+        [Test]
+        public void can_change_password()
+        {
+            Account account = new Account("7458965441", "0185", 8000);
+            account.ChangePassword("0185", "9876");
+            Assert.AreEqual(8000, account.GetBalance("9876"));
+        }
     }
 }
