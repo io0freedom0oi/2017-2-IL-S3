@@ -45,7 +45,13 @@ namespace ITI.Geometry
 
         public bool Overlaps(Segment s)
         {
-            return false;
+            if (s.Start <= Start)
+            {
+                if (s.End <= Start) return false;
+                return true;
+            }
+
+            return s.Overlaps(this);
         }
     }
 }
