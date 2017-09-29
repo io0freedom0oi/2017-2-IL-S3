@@ -6,7 +6,7 @@ namespace ITI.GameOfLife
     {
         readonly int _width;
         readonly int _height;
-        bool[][] _cells;
+        bool[,] _cells;
 
         public Game(int width, int height)
         {
@@ -15,8 +15,7 @@ namespace ITI.GameOfLife
 
             _width = width;
             _height = height;
-            _cells = new bool[width][];
-            for(int i = 0; i < width; i++) _cells[i] = new bool[height];
+            _cells = new bool[width, height];
         }
 
         public int Width
@@ -32,7 +31,7 @@ namespace ITI.GameOfLife
         public bool IsAlive(int x, int y)
         {
             CheckCoordinates(x, y);
-            return _cells[x][y];
+            return _cells[x, y];
         }
 
         public void GiveLife(int x, int y)
@@ -52,9 +51,9 @@ namespace ITI.GameOfLife
             SetState(x, y, isAlive, _cells);
         }
 
-        void SetState(int x, int y, bool isAlive, bool[][] cells)
+        void SetState(int x, int y, bool isAlive, bool[,] cells)
         {
-            cells[x][y] = isAlive;
+            cells[x, y] = isAlive;
         }
 
         void CheckCoordinates(int x, int y)
@@ -70,28 +69,22 @@ namespace ITI.GameOfLife
 
         public bool NextTurn()
         {
-            bool[][] newCells = new bool[Width][];
-            for (int i = 0; i < Width; i++) newCells[i] = new bool[Height];
-            
-            for(int x = 0; x < Width; x++)
-            {
-                for(int y = 0; y < Height; y++)
-                {
-                    newCells[x][y] = _cells[x][y];
-                }
-            }
+            bool[,] newCells = new bool[Width, Height];
+            Array.Copy(_cells, newCells, newCells.Length);
+            bool stateChanged = false;
 
             for (int x = 0; x < Width; x++)
             {
                 for (int y = 0; y < Height; y++)
                 {
                     bool isAlive = DeadOrAlive(x, y);
+                    if (isAlive != _cells[x, y]) stateChanged = true;
                     SetState(x, y, isAlive, newCells);
                 }
             }
 
             _cells = newCells;
-            return true;
+            return stateChanged;
         }
 
         bool DeadOrAlive(int x, int y)
@@ -101,7 +94,7 @@ namespace ITI.GameOfLife
             {
                 for (int j = y - 1; j < y + 2; j++)
                 {
-                    if (!IsMe(x, y, i, j) && IsInGrid(i, j) && IsAlive(i, j)) aliveCount++;
+                    if (!IsMe(x, y, i, j) && _cells[PositiveModulo(i, Width), PositiveModulo(j, Height)]) aliveCount++;
                 }
             }
 
@@ -114,6 +107,12 @@ namespace ITI.GameOfLife
         bool IsMe(int x1, int y1, int x2, int y2)
         {
             return x1 == x2 && y1 == y2;
+        }
+
+        int PositiveModulo(int x, int y)
+        {
+            int modulo = x % y;
+            return modulo >= 0 ? modulo : modulo + y;
         }
     }
 }
