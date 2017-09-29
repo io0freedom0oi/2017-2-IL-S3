@@ -6,7 +6,7 @@ namespace ITI.GameOfLife
     {
         readonly int _width;
         readonly int _height;
-        bool[] _cells;
+        bool[,] _cells;
 
         public Game(int width, int height)
         {
@@ -15,7 +15,7 @@ namespace ITI.GameOfLife
 
             _width = width;
             _height = height;
-            _cells = new bool[width * height];
+            _cells = new bool[width, height];
         }
 
         public int Width
@@ -31,7 +31,7 @@ namespace ITI.GameOfLife
         public bool IsAlive(int x, int y)
         {
             CheckCoordinates(x, y);
-            return _cells[GetCellIndex(x, y)];
+            return _cells[x, y];
         }
 
         public void GiveLife(int x, int y)
@@ -51,14 +51,9 @@ namespace ITI.GameOfLife
             SetState(x, y, isAlive, _cells);
         }
 
-        void SetState(int x, int y, bool isAlive, bool[] cells)
+        void SetState(int x, int y, bool isAlive, bool[,] cells)
         {
-            cells[GetCellIndex(x, y)] = isAlive;
-        }
-
-        int GetCellIndex(int x, int y)
-        {
-            return x + y * Width;
+            cells[x, y] = isAlive;
         }
 
         void CheckCoordinates(int x, int y)
@@ -74,7 +69,7 @@ namespace ITI.GameOfLife
 
         public bool NextTurn()
         {
-            bool[] newCells = new bool[Width * Height];
+            bool[,] newCells = new bool[Width, Height];
             Array.Copy(_cells, newCells, newCells.Length);
 
             for (int x = 0; x < Width; x++)
