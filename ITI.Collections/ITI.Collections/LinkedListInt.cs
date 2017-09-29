@@ -8,12 +8,20 @@ namespace ITI.Collections
 
         public void Add(int value)
         {
-            throw new NotImplementedException();
+            ItemInt newItem = new ItemInt(value, _first);
+            _first = newItem;
         }
 
         public int GetAt(int index)
         {
-            throw new NotImplementedException();
+            ItemInt current = _first;
+            for(int x = 0; x < index; x++)
+            {
+                current = current.Next;
+                if (current == null) throw new ArgumentOutOfRangeException(nameof(index));
+            }
+
+            return current.Value;
         }
     }
 }
