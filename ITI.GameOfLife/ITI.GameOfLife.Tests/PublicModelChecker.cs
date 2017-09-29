@@ -32,7 +32,7 @@ namespace ITI.GameOfLife.ModelChecker
       <Member Type=""Method"" Name=""get_Width"" />
       <Member Type=""Method"" Name=""GetHashCode"" />
       <Member Type=""Method"" Name=""GetType"" />
-      <Member Type=""Method"" Name=""GiveLive"" />
+      <Member Type=""Method"" Name=""GiveLife"" />
       <Member Type=""Property"" Name=""Height"" />
       <Member Type=""Method"" Name=""IsAlive"" />
       <Member Type=""Method"" Name=""Kill"" />
