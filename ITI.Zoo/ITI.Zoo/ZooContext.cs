@@ -19,14 +19,10 @@ namespace ITI.Zoo
         public Cat FindOrCreateCat(string name)
         {
             Cat cat;
-            if (!_cats.ContainsKey(name))
+            if(!_cats.TryGetValue(name, out cat))
             {
                 cat = new Cat(this, name, 1.0, 1.0, new Position(0.0, 0.0));
                 _cats.Add(name, cat);
-            }
-            else
-            {
-                cat = _cats[name];
             }
 
             return cat;
@@ -35,14 +31,10 @@ namespace ITI.Zoo
         public Bird FindOrCreateBird(string name)
         {
             Bird bird;
-            if (!_birds.ContainsKey(name))
+            if (!_birds.TryGetValue(name, out bird))
             {
                 bird = new Bird(this, name, 1.0, 1.0, false, new Position(0.0, 0.0));
                 _birds.Add(name, bird);
-            }
-            else
-            {
-                bird = _birds[name];
             }
 
             return bird;
@@ -50,12 +42,14 @@ namespace ITI.Zoo
 
         internal void OnRename(Cat cat, string newName)
         {
+            if (_cats.ContainsKey(newName)) throw new ArgumentException("A cat with this name already exists.");
             _cats.Remove(cat.Name);
             _cats.Add(newName, cat);
         }
 
         internal void OnRename(Bird bird, string newName)
         {
+            if (_birds.ContainsKey(newName)) throw new ArgumentException("A bird with this name already exists.");
             _birds.Remove(bird.Name);
             _birds.Add(newName, bird);
         }

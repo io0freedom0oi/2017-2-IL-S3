@@ -65,7 +65,7 @@ namespace ITI.Zoo.Tests
             Assert.That(ex1.Message, Is.EqualTo("A cat with this name already exists."));
 
             ArgumentException ex2 = Assert.Catch<ArgumentException>(() => louise.Name = "Fabien");
-            Assert.That(ex1.Message, Is.EqualTo("A bird with this name already exists."));
+            Assert.That(ex2.Message, Is.EqualTo("A bird with this name already exists."));
         }
     }
 }
