@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITI.Zoo", "ITI.Zoo\ITI.Zoo.csproj", "{0AF1AA2F-D6E8-4EB6-A9EE-41BFBA8564A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITI.Zoo.Tests", "ITI.Zoo.Tests\ITI.Zoo.Tests.csproj", "{E9DDF4CA-447E-4D1F-891A-9367489446D6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0AF1AA2F-D6E8-4EB6-A9EE-41BFBA8564A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AF1AA2F-D6E8-4EB6-A9EE-41BFBA8564A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AF1AA2F-D6E8-4EB6-A9EE-41BFBA8564A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AF1AA2F-D6E8-4EB6-A9EE-41BFBA8564A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9DDF4CA-447E-4D1F-891A-9367489446D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9DDF4CA-447E-4D1F-891A-9367489446D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9DDF4CA-447E-4D1F-891A-9367489446D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9DDF4CA-447E-4D1F-891A-9367489446D6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {944D264C-B2F1-4CB0-BF4A-ABB452D32BF7}
+	EndGlobalSection
+EndGlobal
