@@ -19,22 +19,24 @@ namespace ITI.Zoo
 
         public void CreateCat(string name)
         {
-            throw new NotImplementedException();
+            Cat cat = new Cat(name, 1.0, 1.0, new Position(0.0, 0.0));
+            _cats.Add(name, cat);
         }
 
         public Cat FindCatByName(string name)
         {
-            throw new NotImplementedException();
+            return _cats[name];
         }
 
         public void CreateBird(string name)
         {
-            throw new NotImplementedException();
+            Bird bird = new Bird(name, 1.0, 1.0, false, new Position(0.0, 0.0));
+            _birds.Add(name, bird);
         }
 
         public Bird FindBirdByName(string name)
         {
-            throw new NotImplementedException();
+            return _birds[name];
         }
     }
 }
