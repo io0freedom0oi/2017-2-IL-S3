@@ -40,9 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ArrayListInt.cs" />
-    <Compile Include="ItemInt.cs" />
-    <Compile Include="LinkedListInt.cs" />
+    <Compile Include="ArrayList.cs" />
+    <Compile Include="Item.cs" />
+    <Compile Include="LinkedList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

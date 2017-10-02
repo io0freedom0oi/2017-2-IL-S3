@@ -2,19 +2,19 @@
 
 namespace ITI.Collections
 {
-    public class LinkedListInt
+    public class LinkedList<T>
     {
-        ItemInt _first;
+        Item<T> _first;
 
-        public void Add(int value)
+        public void Add(T value)
         {
-            ItemInt newItem = new ItemInt(value, _first);
+            Item<T> newItem = new Item<T>(value, _first);
             _first = newItem;
         }
 
-        public int GetAt(int index)
+        public T GetAt(int index)
         {
-            ItemInt current = _first;
+            Item<T> current = _first;
             for(int x = 0; x < index; x++)
             {
                 current = current.Next;

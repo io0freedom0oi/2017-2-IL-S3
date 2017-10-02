@@ -6,31 +6,31 @@ using System.Threading.Tasks;
 
 namespace ITI.Collections
 {
-    public class ArrayListInt
+    public class ArrayList<T>
     {
-        int[] _values;
+        T[] _values;
         int _count;
 
-        public ArrayListInt()
+        public ArrayList()
         {
-            _values = new int[4];
+            _values = new T[4];
         }
 
-        public void Add(int value)
+        public void Add(T value)
         {
             if (_count == _values.Length) DoubleCapacity();
             _values[_count] = value;
             _count++;
         }
 
-        public int GetAt(int index)
+        public T GetAt(int index)
         {
             return _values[index];
         }
 
         void DoubleCapacity()
         {
-            int[] newValues = new int[_values.Length * 2];
+            T[] newValues = new T[_values.Length * 2];
             Array.Copy(_values, newValues, _values.Length);
         }
     }

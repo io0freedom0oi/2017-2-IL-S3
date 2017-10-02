@@ -6,24 +6,24 @@ using System.Threading.Tasks;
 
 namespace ITI.Collections
 {
-    class ItemInt
+    class Item<T>
     {
-        int _value;
-        ItemInt _next;
+        T _value;
+        Item<T> _next;
 
-        public ItemInt(int value, ItemInt next)
+        public Item(T value, Item<T> next)
         {
             _value = value;
             _next = next;
         }
 
-        public int Value
+        public T Value
         {
             get { return _value; }
             set { _value = value; }
         }
 
-        public ItemInt Next
+        public Item<T> Next
         {
             get { return _next; }
             set { _next = value; }
