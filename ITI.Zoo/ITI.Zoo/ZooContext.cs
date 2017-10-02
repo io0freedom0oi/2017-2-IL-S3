@@ -21,7 +21,7 @@ namespace ITI.Zoo
             Cat cat;
             if (!_cats.ContainsKey(name))
             {
-                cat = new Cat(name, 1.0, 1.0, new Position(0.0, 0.0));
+                cat = new Cat(this, name, 1.0, 1.0, new Position(0.0, 0.0));
                 _cats.Add(name, cat);
             }
             else
@@ -37,7 +37,7 @@ namespace ITI.Zoo
             Bird bird;
             if (!_birds.ContainsKey(name))
             {
-                bird = new Bird(name, 1.0, 1.0, false, new Position(0.0, 0.0));
+                bird = new Bird(this, name, 1.0, 1.0, false, new Position(0.0, 0.0));
                 _birds.Add(name, bird);
             }
             else
@@ -46,6 +46,18 @@ namespace ITI.Zoo
             }
 
             return bird;
+        }
+
+        internal void OnRename(Cat cat, string newName)
+        {
+            _cats.Remove(cat.Name);
+            _cats.Add(newName, cat);
+        }
+
+        internal void OnRename(Bird bird, string newName)
+        {
+            _birds.Remove(bird.Name);
+            _birds.Add(newName, bird);
         }
     }
 }

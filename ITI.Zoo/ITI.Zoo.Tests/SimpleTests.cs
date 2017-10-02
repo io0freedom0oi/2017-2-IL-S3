@@ -51,5 +51,21 @@ namespace ITI.Zoo.Tests
             Assert.That(zoo.FindOrCreateCat("Jean"), Is.Not.SameAs(cat));
             Assert.That(zoo.FindOrCreateBird("Louise"), Is.Not.SameAs(bird));
         }
+
+        [Test]
+        public void cannot_rename_an_animal_with_an_existing_name()
+        {
+            ZooContext zoo = new ZooContext();
+            Cat jean = zoo.FindOrCreateCat("Jean");
+            Cat julien = zoo.FindOrCreateCat("Julien");
+            Bird louise = zoo.FindOrCreateBird("Louise");
+            Bird fabien = zoo.FindOrCreateBird("Fabien");
+
+            ArgumentException ex1 = Assert.Catch<ArgumentException>(() => jean.Name = "Julien");
+            Assert.That(ex1.Message, Is.EqualTo("A cat with this name already exists."));
+
+            ArgumentException ex2 = Assert.Catch<ArgumentException>(() => louise.Name = "Fabien");
+            Assert.That(ex1.Message, Is.EqualTo("A bird with this name already exists."));
+        }
     }
 }

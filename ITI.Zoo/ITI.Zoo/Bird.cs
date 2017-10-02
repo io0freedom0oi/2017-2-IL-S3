@@ -8,14 +8,16 @@ namespace ITI.Zoo
 {
     public class Bird
     {
+        ZooContext _ctx;
         string _name;
         double _health;
         readonly double _speed;
         bool _isFlying;
         Position _position;
 
-        public Bird(string name, double health, double speed, bool isFlying, Position position)
+        internal Bird(ZooContext ctx, string name, double health, double speed, bool isFlying, Position position)
         {
+            _ctx = ctx;
             _name = name;
             _health = health;
             _speed = speed;
@@ -26,7 +28,11 @@ namespace ITI.Zoo
         public string Name
         {
             get { return _name; }
-            set { throw new NotImplementedException(); }
+            set
+            {
+                _ctx.OnRename(this, value);
+                _name = value;
+            }
         }
 
         public double Health

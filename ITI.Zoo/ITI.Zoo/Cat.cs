@@ -8,13 +8,15 @@ namespace ITI.Zoo
 {
     public class Cat
     {
+        ZooContext _ctx;
         string _name;
         double _health;
         readonly double _speed;
         Position _position;
 
-        internal Cat(string name, double health, double speed, Position position)
+        internal Cat(ZooContext ctx, string name, double health, double speed, Position position)
         {
+            _ctx = ctx;
             _name = name;
             _health = health;
             _speed = speed;
@@ -24,7 +26,11 @@ namespace ITI.Zoo
         public string Name
         {
             get { return _name; }
-            set { throw new NotImplementedException(); }
+            set
+            {
+                _ctx.OnRename(this, value);
+                _name = value;
+            }
         }
 
         public double Health
