@@ -13,7 +13,7 @@ namespace ITI.Zoo
         readonly double _speed;
         Position _position;
 
-        public Cat(string name, double health, double speed, Position position)
+        internal Cat(string name, double health, double speed, Position position)
         {
             _name = name;
             _health = health;
@@ -24,6 +24,7 @@ namespace ITI.Zoo
         public string Name
         {
             get { return _name; }
+            set { throw new NotImplementedException(); }
         }
 
         public double Health

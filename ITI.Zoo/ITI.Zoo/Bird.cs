@@ -26,6 +26,7 @@ namespace ITI.Zoo
         public string Name
         {
             get { return _name; }
+            set { throw new NotImplementedException(); }
         }
 
         public double Health
