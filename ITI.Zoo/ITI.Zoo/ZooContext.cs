@@ -9,11 +9,20 @@ namespace ITI.Zoo
     {
         readonly Dictionary<string, Cat> _cats;
         readonly Dictionary<string, Bird> _birds;
+        readonly Random _random;
+        readonly double _meterSize;
 
         public ZooContext()
+            : this(1000.0)
+        {
+        }
+
+        public ZooContext(double size)
         {
             _cats = new Dictionary<string, Cat>();
             _birds = new Dictionary<string, Bird>();
+            _random = new Random();
+            _meterSize = 1 / size / 2;
         }
 
         public Cat FindOrCreateCat(string name)
@@ -21,7 +30,7 @@ namespace ITI.Zoo
             Cat cat;
             if(!_cats.TryGetValue(name, out cat))
             {
-                cat = new Cat(this, name, 1.0, 1.0, new Position(0.0, 0.0));
+                cat = new Cat(this, name, 1.0, 1.0, RandomPosition());
                 _cats.Add(name, cat);
             }
 
@@ -33,7 +42,7 @@ namespace ITI.Zoo
             Bird bird;
             if (!_birds.TryGetValue(name, out bird))
             {
-                bird = new Bird(this, name, 1.0, 1.0, false, new Position(0.0, 0.0));
+                bird = new Bird(this, name, 1.0, 1.0, false, RandomPosition());
                 _birds.Add(name, bird);
             }
 
@@ -52,6 +61,16 @@ namespace ITI.Zoo
             if (_birds.ContainsKey(newName)) throw new ArgumentException("A bird with this name already exists.");
             _birds.Remove(bird.Name);
             _birds.Add(newName, bird);
+        }
+
+        double RandomDouble(double min, double max)
+        {
+            return _random.NextDouble() * (max - min) + min;
+        }
+
+        Position RandomPosition()
+        {
+            return new Position(RandomDouble(-1.0, 1.0), RandomDouble(-1.0, 1.0));
         }
     }
 }
