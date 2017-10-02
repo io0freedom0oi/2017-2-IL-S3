@@ -8,5 +8,49 @@ namespace ITI.Zoo
 {
     public class Bird
     {
+        string _name;
+        double _health;
+        readonly double _speed;
+        bool _isFlying;
+        Position _position;
+
+        public Bird(string name, double health, double speed, bool isFlying, Position position)
+        {
+            _name = name;
+            _health = health;
+            _speed = speed;
+            _isFlying = isFlying;
+            _position = position;
+        }
+
+        public string Name
+        {
+            get { return _name; }
+        }
+
+        public double Health
+        {
+            get { return _health; }
+        }
+
+        public double Speed
+        {
+            get { return _speed; }
+        }
+
+        public bool IsFlying
+        {
+            get { return _isFlying; }
+        }
+
+        public Position Position
+        {
+            get { return _position; }
+        }
+
+        public bool IsAlive
+        {
+            get { return _health > 0; }
+        }
     }
 }

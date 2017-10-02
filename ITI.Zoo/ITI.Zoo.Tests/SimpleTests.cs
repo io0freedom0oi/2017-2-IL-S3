@@ -11,15 +11,26 @@ namespace ITI.Zoo.Tests
     public class SimpleTests
     {
         [Test]
-        public void ShouldPass()
+        public void create_animals()
         {
-            Assert.That(0, Is.EqualTo(0));
-        }
+            ZooContext sut = new ZooContext();
 
-        [Test]
-        public void ShouldFail()
-        {
-            Assert.That(1, Is.EqualTo(0));
+            sut.CreateCat("Denis");
+            sut.CreateCat("Albert");
+
+            sut.CreateBird("René");
+            sut.CreateBird("Yvon");
+
+            Cat denis = sut.FindCatByName("Denis");
+            Cat albert = sut.FindCatByName("Albert");
+
+            Bird rene = sut.FindBirdByName("René");
+            Bird yvon = sut.FindBirdByName("Yvon");
+
+            Assert.That(denis.Name, Is.EqualTo("Denis"));
+            Assert.That(albert.Name, Is.EqualTo("Albert"));
+            Assert.That(rene.Name, Is.EqualTo("René"));
+            Assert.That(yvon.Name, Is.EqualTo("Yvon"));
         }
     }
 }
