@@ -13,9 +13,9 @@ namespace ITI.Zoo
         double _health;
         readonly double _speed;
         bool _isFlying;
-        Position _position;
+        Vector _position;
 
-        internal Bird(ZooContext ctx, string name, double health, double speed, bool isFlying, Position position)
+        internal Bird(ZooContext ctx, string name, double health, double speed, bool isFlying, Vector position)
         {
             _ctx = ctx;
             _name = name;
@@ -50,7 +50,7 @@ namespace ITI.Zoo
             get { return _isFlying; }
         }
 
-        public Position Position
+        public Vector Position
         {
             get { return _position; }
         }
@@ -62,7 +62,19 @@ namespace ITI.Zoo
 
         internal void Update()
         {
+            if (_health <= _ctx.Infos.BirdLandingThreshold) _isFlying = false;
+            if (_health >= _ctx.Infos.BirdFlyingThreshold) _isFlying = true;
 
+            if(_isFlying)
+            {
+                _health -= _ctx.Infos.BirdRecoverySpeed;
+                Vector direction = _ctx.RandomDirection();
+                _position = _position.Add(direction.Mult(_speed));
+            }
+            else
+            {
+                _health += _ctx.Infos.BirdRecoverySpeed;
+            }
         }
     }
 }

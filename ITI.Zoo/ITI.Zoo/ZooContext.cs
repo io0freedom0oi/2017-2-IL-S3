@@ -73,14 +73,24 @@ namespace ITI.Zoo
             _birds.Add(newName, bird);
         }
 
-        double RandomDouble(double min, double max)
+        internal double RandomDouble(double min, double max)
         {
             return _random.NextDouble() * (max - min) + min;
         }
 
-        Position RandomPosition()
+        Vector RandomPosition()
         {
-            return new Position(RandomDouble(-1.0, 1.0), RandomDouble(-1.0, 1.0));
+            return new Vector(RandomDouble(-1.0, 1.0), RandomDouble(-1.0, 1.0));
+        }
+
+        internal ZooInfos Infos
+        {
+            get { return _zooInfos; }
+        }
+
+        internal Vector RandomDirection()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -12,9 +12,9 @@ namespace ITI.Zoo
         string _name;
         double _health;
         readonly double _speed;
-        Position _position;
+        Vector _position;
 
-        internal Cat(ZooContext ctx, string name, double health, double speed, Position position)
+        internal Cat(ZooContext ctx, string name, double health, double speed, Vector position)
         {
             _ctx = ctx;
             _name = name;
@@ -43,7 +43,7 @@ namespace ITI.Zoo
             get { return _speed; }
         }
 
-        public Position Position
+        public Vector Position
         {
             get { return _position; }
         }

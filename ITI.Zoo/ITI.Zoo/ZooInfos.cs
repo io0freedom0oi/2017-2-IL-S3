@@ -15,6 +15,9 @@ namespace ITI.Zoo
             MinBirdSpeed = 45000;
             MaxBirdSpeed = 55000;
             Size = 1000;
+            BirdFlyingThreshold = 0.8;
+            BirdLandingThreshold = 0.2;
+            BirdRecoverySpeed = 0.001;
         }
 
         public double MinCatSpeed { get; set; }
@@ -26,5 +29,11 @@ namespace ITI.Zoo
         public double MaxBirdSpeed { get; set; }
 
         public double Size { get; set; }
+
+        public double BirdFlyingThreshold { get; set; }
+
+        public double BirdLandingThreshold { get; set; }
+
+        public double BirdRecoverySpeed { get; set; }
     }
 }
