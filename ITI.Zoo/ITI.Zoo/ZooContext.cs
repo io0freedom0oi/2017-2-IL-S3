@@ -11,18 +11,20 @@ namespace ITI.Zoo
         readonly Dictionary<string, Bird> _birds;
         readonly Random _random;
         readonly double _meterSize;
+        readonly ZooInfos _zooInfos;
 
         public ZooContext()
-            : this(1000.0)
+            : this(new ZooInfos())
         {
         }
 
-        public ZooContext(double size)
+        public ZooContext(ZooInfos zooInfos)
         {
             _cats = new Dictionary<string, Cat>();
             _birds = new Dictionary<string, Bird>();
             _random = new Random();
-            _meterSize = 1 / size / 2;
+            _meterSize = 1 / zooInfos.Size / 2;
+            _zooInfos = zooInfos ?? new ZooInfos();
         }
 
         public Cat FindOrCreateCat(string name)
@@ -30,7 +32,8 @@ namespace ITI.Zoo
             Cat cat;
             if(!_cats.TryGetValue(name, out cat))
             {
-                cat = new Cat(this, name, 1.0, 1.0, RandomPosition());
+                double speed = RandomDouble(35000, 45000) / 3600;
+                cat = new Cat(this, name, 1.0, speed * _meterSize, RandomPosition());
                 _cats.Add(name, cat);
             }
 
@@ -42,7 +45,8 @@ namespace ITI.Zoo
             Bird bird;
             if (!_birds.TryGetValue(name, out bird))
             {
-                bird = new Bird(this, name, 1.0, 1.0, false, RandomPosition());
+                double speed = RandomDouble(45000, 55000) / 3600;
+                bird = new Bird(this, name, 1.0, speed * _meterSize, false, RandomPosition());
                 _birds.Add(name, bird);
             }
 
