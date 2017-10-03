@@ -30,9 +30,9 @@ namespace ITI.Zoo
         public Cat FindOrCreateCat(string name)
         {
             Cat cat;
-            if(!_cats.TryGetValue(name, out cat))
+            if (!_cats.TryGetValue(name, out cat))
             {
-                double speed = RandomDouble(35000, 45000) / 3600;
+                double speed = RandomDouble(_zooInfos.MinCatSpeed, _zooInfos.MaxCatSpeed) / 3600;
                 cat = new Cat(this, name, 1.0, speed * _meterSize, RandomPosition());
                 _cats.Add(name, cat);
             }
@@ -45,12 +45,18 @@ namespace ITI.Zoo
             Bird bird;
             if (!_birds.TryGetValue(name, out bird))
             {
-                double speed = RandomDouble(45000, 55000) / 3600;
+                double speed = RandomDouble(_zooInfos.MinBirdSpeed, _zooInfos.MaxBirdSpeed) / 3600;
                 bird = new Bird(this, name, 1.0, speed * _meterSize, false, RandomPosition());
                 _birds.Add(name, bird);
             }
 
             return bird;
+        }
+
+        public void Update()
+        {
+            foreach (Cat cat in _cats.Values) cat.Update();
+            foreach (Bird bird in _birds.Values) bird.Update();
         }
 
         internal void OnRename(Cat cat, string newName)

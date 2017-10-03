@@ -59,5 +59,10 @@ namespace ITI.Zoo
         {
             get { return _health > 0; }
         }
+
+        internal void Update()
+        {
+
+        }
     }
 }
