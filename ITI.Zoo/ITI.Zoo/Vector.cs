@@ -30,5 +30,10 @@
         {
             throw new System.NotImplementedException();
         }
+
+        public Vector Limit(double xMin, double yMin, double xMax, double yMax)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

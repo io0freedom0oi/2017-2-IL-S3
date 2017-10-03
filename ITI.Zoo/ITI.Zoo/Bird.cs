@@ -68,8 +68,10 @@ namespace ITI.Zoo
             if(_isFlying)
             {
                 _health -= _ctx.Infos.BirdRecoverySpeed;
+
                 Vector direction = _ctx.RandomDirection();
                 _position = _position.Add(direction.Mult(_speed));
+                _position = _position.Limit(-1, -1, 1, 1);
             }
             else
             {
