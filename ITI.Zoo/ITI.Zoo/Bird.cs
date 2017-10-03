@@ -8,14 +8,14 @@ namespace ITI.Zoo
 {
     public class Bird
     {
-        ZooContext _ctx;
+        Zoo _ctx;
         string _name;
         double _health;
         readonly double _speed;
         bool _isFlying;
         Vector _position;
 
-        internal Bird(ZooContext ctx, string name, double health, double speed, bool isFlying, Vector position)
+        internal Bird(Zoo ctx, string name, double health, double speed, bool isFlying, Vector position)
         {
             _ctx = ctx;
             _name = name;
@@ -53,6 +53,16 @@ namespace ITI.Zoo
         public Vector Position
         {
             get { return _position; }
+        }
+
+        public double X
+        {
+            get { return _position.X; }
+        }
+
+        public double Y
+        {
+            get { return _position.Y; }
         }
 
         public bool IsAlive

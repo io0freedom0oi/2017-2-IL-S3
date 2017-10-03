@@ -8,13 +8,13 @@ namespace ITI.Zoo
 {
     public class Cat
     {
-        ZooContext _ctx;
+        Zoo _ctx;
         string _name;
         double _health;
         readonly double _speed;
         Vector _position;
 
-        internal Cat(ZooContext ctx, string name, double health, double speed, Vector position)
+        internal Cat(Zoo ctx, string name, double health, double speed, Vector position)
         {
             _ctx = ctx;
             _name = name;
@@ -46,6 +46,16 @@ namespace ITI.Zoo
         public Vector Position
         {
             get { return _position; }
+        }
+
+        public double X
+        {
+            get { return _position.X; }
+        }
+
+        public double Y
+        {
+            get { return _position.Y; }
         }
 
         public bool IsAlive

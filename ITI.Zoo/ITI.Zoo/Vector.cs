@@ -35,7 +35,7 @@ namespace ITI.Zoo
 
         public Vector Limit(double xMin, double yMin, double xMax, double yMax)
         {
-            return new Vector(Math.Max(xMin, Math.Min(xMax, _x)), Math.Max(yMin, Math.Min(yMax, _x)));
+            return new Vector(Math.Max(xMin, Math.Min(xMax, _x)), Math.Max(yMin, Math.Min(yMax, _y)));
         }
     }
 }

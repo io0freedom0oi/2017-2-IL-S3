@@ -5,48 +5,49 @@ using System.Threading.Tasks;
 
 namespace ITI.Zoo
 {
-    public class ZooContext
+    public class Zoo
     {
         readonly Dictionary<string, Cat> _cats;
         readonly Dictionary<string, Bird> _birds;
         readonly Random _random;
-        readonly double _meterSize;
+        readonly double _meterDefinition;
         readonly ZooInfos _zooInfos;
 
-        public ZooContext()
+        public Zoo()
             : this(new ZooInfos())
         {
         }
 
-        public ZooContext(ZooInfos zooInfos)
+        public Zoo(ZooInfos zooInfos)
         {
             _cats = new Dictionary<string, Cat>();
             _birds = new Dictionary<string, Bird>();
             _random = new Random();
-            _meterSize = 1 / zooInfos.Size / 2;
+            _meterDefinition = 1 / zooInfos.Size / 2;
             _zooInfos = zooInfos ?? new ZooInfos();
         }
 
-        public Cat FindOrCreateCat(string name)
+        public Cat CreateCat(string name)
         {
             Cat cat;
             if (!_cats.TryGetValue(name, out cat))
             {
                 double speed = RandomDouble(_zooInfos.MinCatSpeed, _zooInfos.MaxCatSpeed) / 3600;
-                cat = new Cat(this, name, 1.0, speed * _meterSize, RandomPosition());
+                cat = new Cat(this, name, 1.0, speed * _meterDefinition, RandomPosition());
                 _cats.Add(name, cat);
             }
 
             return cat;
         }
 
-        public Bird FindOrCreateBird(string name)
+        public Bird CreateBird(string name)
         {
             Bird bird;
             if (!_birds.TryGetValue(name, out bird))
             {
                 double speed = RandomDouble(_zooInfos.MinBirdSpeed, _zooInfos.MaxBirdSpeed) / 3600;
-                bird = new Bird(this, name, 1.0, speed * _meterSize, false, RandomPosition());
+                System.Diagnostics.Debugger.Launch();
+                bird = new Bird(this, name, 1.0, speed * _meterDefinition, false, RandomPosition());
                 _birds.Add(name, bird);
             }
 
@@ -94,6 +95,11 @@ namespace ITI.Zoo
             double y = Math.Sqrt(1 - x * x);
             y = _random.NextDouble() < 0.5 ? y : -y;
             return new Vector(x, y);
+        }
+
+        public double MeterDefinition
+        {
+            get { return _meterDefinition; }
         }
     }
 }
