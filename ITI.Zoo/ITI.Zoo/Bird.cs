@@ -72,6 +72,12 @@ namespace ITI.Zoo
 
         internal void Update()
         {
+            if(!IsAlive)
+            {
+                _ctx.OnDie(this);
+                _ctx = null;
+            }
+
             if (_health <= _ctx.Infos.BirdLandingThreshold) _isFlying = false;
             if (_health >= _ctx.Infos.BirdFlyingThreshold) _isFlying = true;
 

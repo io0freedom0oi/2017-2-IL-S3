@@ -65,7 +65,11 @@ namespace ITI.Zoo
 
         internal void Update()
         {
-
+            if(!IsAlive)
+            {
+                _ctx.OnDie(this);
+                _ctx = null;
+            }
         }
     }
 }

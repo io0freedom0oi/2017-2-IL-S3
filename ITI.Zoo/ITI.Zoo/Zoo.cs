@@ -7,6 +7,8 @@ namespace ITI.Zoo
 {
     public class Zoo
     {
+        readonly List<Cat> _deadCats;
+        readonly List<Bird> _deadBirds;
         readonly Dictionary<string, Cat> _cats;
         readonly Dictionary<string, Bird> _birds;
         readonly Random _random;
@@ -20,6 +22,8 @@ namespace ITI.Zoo
 
         public Zoo(ZooInfos zooInfos)
         {
+            _deadBirds = new List<Bird>();
+            _deadCats = new List<Cat>();
             _cats = new Dictionary<string, Cat>();
             _birds = new Dictionary<string, Bird>();
             _random = new Random();
@@ -54,10 +58,26 @@ namespace ITI.Zoo
             return bird;
         }
 
+        internal void OnDie(Cat cat)
+        {
+            _deadCats.Add(cat);
+        }
+
+        internal void OnDie(Bird bird)
+        {
+            _deadBirds.Add(bird);
+        }
+
         public void Update()
         {
+            _deadCats.Clear();
+            _deadBirds.Clear();
+
             foreach (Cat cat in _cats.Values) cat.Update();
             foreach (Bird bird in _birds.Values) bird.Update();
+
+            foreach (Cat cat in _deadCats) _cats.Remove(cat.Name);
+            foreach (Bird bird in _deadBirds) _birds.Remove(bird.Name);
         }
 
         internal void OnRename(Cat cat, string newName)
