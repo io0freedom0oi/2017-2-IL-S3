@@ -1,4 +1,6 @@
-﻿namespace ITI.Zoo
+﻿using System;
+
+namespace ITI.Zoo
 {
     public class Vector
     {
@@ -23,17 +25,17 @@
 
         public Vector Add(Vector v)
         {
-            throw new System.NotImplementedException();
+            return new Vector(_x + v._x, _y + v._y);
         }
 
         public Vector Mult(double n)
         {
-            throw new System.NotImplementedException();
+            return new Vector(_x * n, _y * n);
         }
 
         public Vector Limit(double xMin, double yMin, double xMax, double yMax)
         {
-            throw new System.NotImplementedException();
+            return new Vector(Math.Max(xMin, Math.Min(xMax, _x)), Math.Max(yMin, Math.Min(yMax, _x)));
         }
     }
 }

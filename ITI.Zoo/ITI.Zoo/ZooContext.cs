@@ -90,7 +90,10 @@ namespace ITI.Zoo
 
         internal Vector RandomDirection()
         {
-            throw new NotImplementedException();
+            double x = RandomDouble(-1.0, 1.0);
+            double y = Math.Sqrt(1 - x * x);
+            y = _random.NextDouble() < 0.5 ? y : -y;
+            return new Vector(x, y);
         }
     }
 }
