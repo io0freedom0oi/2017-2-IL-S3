@@ -76,6 +76,7 @@ namespace ITI.Zoo
             {
                 _ctx.OnDie(this);
                 _ctx = null;
+                return;
             }
 
             if (_health <= _ctx.Infos.BirdLandingThreshold) _isFlying = false;

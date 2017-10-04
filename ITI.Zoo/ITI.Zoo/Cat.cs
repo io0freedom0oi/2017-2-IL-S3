@@ -69,6 +69,7 @@ namespace ITI.Zoo
             {
                 _ctx.OnDie(this);
                 _ctx = null;
+                return;
             }
 
             Bird bird = ClosestBird();
@@ -85,13 +86,19 @@ namespace ITI.Zoo
                     Vector direction = DirectionTo(bird.Position);
                     _position = _position.Add(direction.Mult(_speed));
                     _position = _position.Limit(-1, -1, 1, 1);
+                    _health -= _ctx.Infos.CatExhaustionSpeed;
                 }
             }
         }
 
         Vector DirectionTo(Vector destination)
         {
-            throw new NotImplementedException();
+            double h = GetDistanceTo(destination);
+            double o = destination.Y - Y;
+            double sin = o / h;
+            double alpha = Math.Asin(sin);
+
+            return new Vector(Math.Sin(alpha), Math.Cos(alpha));
         }
 
         Bird ClosestBird()
