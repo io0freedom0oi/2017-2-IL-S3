@@ -17,7 +17,8 @@ namespace ITI.Zoo
             Size = 1000;
             BirdFlyingThreshold = 0.8;
             BirdLandingThreshold = 0.2;
-            BirdRecoverySpeed = 0.001;
+            BirdRecoverySpeed = 0.05;
+            CatRecoverySpeed = 0.5;
         }
 
         public double MinCatSpeed { get; set; }
@@ -35,5 +36,7 @@ namespace ITI.Zoo
         public double BirdLandingThreshold { get; set; }
 
         public double BirdRecoverySpeed { get; set; }
+
+        public double CatRecoverySpeed { get; set; }
     }
 }

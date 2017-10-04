@@ -50,7 +50,6 @@ namespace ITI.Zoo
             if (!_birds.TryGetValue(name, out bird))
             {
                 double speed = RandomDouble(_zooInfos.MinBirdSpeed, _zooInfos.MaxBirdSpeed) / 3600;
-                System.Diagnostics.Debugger.Launch();
                 bird = new Bird(this, name, 1.0, speed * _meterDefinition, false, RandomPosition());
                 _birds.Add(name, bird);
             }
@@ -120,6 +119,16 @@ namespace ITI.Zoo
         public double MeterDefinition
         {
             get { return _meterDefinition; }
+        }
+
+        public List<Bird> Birds
+        {
+            get
+            {
+                List<Bird> birds = new List<Bird>();
+                foreach (Bird bird in _birds.Values) birds.Add(bird);
+                return birds;
+            }
         }
     }
 }

@@ -70,6 +70,51 @@ namespace ITI.Zoo
                 _ctx.OnDie(this);
                 _ctx = null;
             }
+
+            Bird bird = ClosestBird();
+            if (bird != null)
+            {
+                if (GetDistanceTo(bird.Position) <= _speed)
+                {
+                    _position = bird.Position;
+                    bird.Kill();
+                    _health = Math.Min(1.0, _health + _ctx.Infos.CatRecoverySpeed);
+                }
+                else
+                {
+                    Vector direction = DirectionTo(bird.Position);
+                    _position = _position.Add(direction.Mult(_speed));
+                    _position = _position.Limit(-1, -1, 1, 1);
+                }
+            }
+        }
+
+        Vector DirectionTo(Vector destination)
+        {
+            throw new NotImplementedException();
+        }
+
+        Bird ClosestBird()
+        {
+            Bird closest = null;
+            double shortestDistance = double.MaxValue;
+
+            foreach(Bird bird in _ctx.Birds)
+            {
+                double distance = GetDistanceTo(bird.Position);
+                if (distance < shortestDistance)
+                {
+                    closest = bird;
+                    shortestDistance = distance;
+                }
+            }
+
+            return closest;
+        }
+
+        double GetDistanceTo(Vector destination)
+        {
+            return Math.Sqrt(Math.Pow(destination.X - X, 2) + Math.Pow(destination.Y - Y, 2));
         }
     }
 }

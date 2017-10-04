@@ -94,5 +94,10 @@ namespace ITI.Zoo
                 _health += _ctx.Infos.BirdRecoverySpeed;
             }
         }
+
+        internal void Kill()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
